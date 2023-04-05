@@ -1,0 +1,38 @@
+[
+  {
+    "claimId" : "C001232001",
+    "memberId" : "MEM001",
+    "memberName" : "Alex",
+    "patientId" : "P0001",
+    "claimType" : "CASHLESS",
+    "claimStatus" : "PREAUTH",
+    "insurerName" : "Aetna"
+  },
+  {
+    "claimId" : "C001232001",
+    "memberId" : "MEM001",
+    "memberName" : "Alex",
+    "patientId" : "P0001",
+    "claimType" : "CASHLESS",
+    "claimStatus" : "Claims Adjudication",
+    "insurerName" : "Aetna"
+  },
+  {
+    "claimId" : "C001232001",
+    "memberId" : "MEM001",
+    "memberName" : "Alex",
+    "patientId" : "P0001",
+    "claimType" : "CASHLESS",
+    "claimStatus" : "Claims Settled.",
+    "insurerName" : "Aetna"
+  },
+  {
+    "claimId" : "C001232001",
+    "memberId" : "MEM001",
+    "memberName" : "Alex",
+    "patientId" : "P0001",
+    "claimType" : "CASHLESS",
+    "claimStatus" : "Claims Settled",
+    "insurerName" : "Aetna"
+  }
+]

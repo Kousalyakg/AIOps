@@ -1,5 +1,7 @@
 package com.psquare.obs.controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,5 +55,39 @@ public class ObsController {
                 map.put(i, i);
             }
         return ResponseEntity.ok(HttpStatus.GATEWAY_TIMEOUT.toString());
+    }
+
+    @GetMapping("/get-member-data")
+    public ResponseEntity<String> getMemberData(){
+        String jsonString = null;
+        //log.debug("/get-member-data {}"," Getting member data");
+        try(InputStream in=Thread.currentThread().getContextClassLoader().getResourceAsStream("data/member.json")){
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonNode = mapper.readValue(in, JsonNode.class);
+            jsonString = mapper.writeValueAsString(jsonNode);
+        }
+        catch(Exception e){
+          //  log.error("/get-member-data", "Failed to member data " + e.getMessage());
+            throw new RuntimeException(e);
+        }
+        //log.info("/get-member-data", "Successfully Fetched to member data ");
+        return ResponseEntity.ok(jsonString);
+    }
+
+    @GetMapping("/get-claim-data")
+    public ResponseEntity<String> getClaimData(){
+        String jsonString = null;
+        //log.debug("/get-claim-data", " Getting claim data");
+        try(InputStream in=Thread.currentThread().getContextClassLoader().getResourceAsStream("data/claim.json")){
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode jsonNode = mapper.readValue(in, JsonNode.class);
+            jsonString = mapper.writeValueAsString(jsonNode);
+        }
+        catch(Exception e){
+           // log.error("/get-claim-data", "Failed to claim data " + e.getMessage());
+            throw new RuntimeException(e);
+        }
+        //log.info("/get-claim-data", "Successfully Fetched to claim data ");
+        return ResponseEntity.ok(jsonString);
     }
 }

@@ -1,0 +1,30 @@
+{
+  "memberName" : "Kaylee",
+  "memberID" : "AT00001",
+  "email": "kaylee@gmail.com",
+  "mobile": "65709723",
+  "insurer": "Aetna",
+  "dependents" : [{
+    "dependentName" : "Green",
+    "depId" : "P001D01",
+    "relationship" : "Father",
+    "dob" : "10/10/1954",
+    "age" : 67
+  },
+    {
+      "dependentName" : "Sarena",
+      "depId" : "P001D01",
+      "relationship" : "Mother",
+      "dob" : "10/10/1964",
+      "age" : 57
+    },
+    {
+      "dependentName" : "Peter",
+      "depId" : "P001D01",
+      "relationship" : "Spouse",
+      "dob" : "10/10/1985",
+      "age" : 37
+    }
+
+  ]
+}
