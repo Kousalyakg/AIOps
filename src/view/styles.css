@@ -1,0 +1,138 @@
+body {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.4;
+}
+
+/* Table Style */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 50px;
+  font-size: 14px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-right: none;
+  border-left: none;
+}
+
+th {
+  background-color: #dce2ed;
+  font-weight: bold;
+}
+
+/* Alternate row colors */
+tr:nth-child(even) {
+  background-color: #f2f5fc;
+}
+
+/* Hover effect */
+tr:hover {
+  background-color: #f4f4f4;
+}
+
+/* Responsive table */
+@media (max-width: 600px) {
+  table,
+  tr,
+  td {
+    display: block;
+  }
+
+  th {
+    display: none;
+  }
+
+  td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+}
+
+a.button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: rgb(0, 105, 255);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+a.button:hover {
+  background-color: rgb(0, 44, 155);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Style the form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style the form input fields */
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Style the form submit button */
+form input[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+form input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+.member-detail {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.detail-wrapper {
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #ececec;
+  -webkit-box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.54);
+  -moz-box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.54);
+  box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.54);
+}
