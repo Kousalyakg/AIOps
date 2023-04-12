@@ -2,12 +2,15 @@ package com.psquare.obs.controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.psquare.obs.models.VacDtl;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.InputStream;
@@ -89,5 +92,10 @@ public class ObsController {
         }
         //log.info("/get-claim-data", "Successfully Fetched to claim data ");
         return ResponseEntity.ok(jsonString);
+    }
+
+    @PostMapping("/submit-vac-dtl")
+    public ResponseEntity<String> submitVacDtl(@RequestBody VacDtl vacDtl){
+        return ResponseEntity.ok(vacDtl.toString());
     }
 }
