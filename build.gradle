@@ -19,6 +19,11 @@ dependencies {
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.json:json:20090211'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
+	implementation 'org.springframework.boot:spring-boot-starter-actuator:3.0.4'
+	// https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-prometheus
+	implementation 'io.micrometer:micrometer-registry-prometheus:1.10.5'
+
 
 }
 
