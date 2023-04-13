@@ -30,6 +30,7 @@ function showClaimDate(data) {
 
 function showMemberData(data) {
   let text = ``;
+  let dependentData = ``;
   console.log(data);
   text += `<span>Member Name:</span> <strong>${data.memberName}</strong><br>
   <span>Member ID:</span> <strong>${data.memberID}</strong><br>
@@ -37,7 +38,27 @@ function showMemberData(data) {
   <span>Email:</span> <strong>${data.email}</strong><br>
   <span>Mobile:</span> <strong>${data.mobile}</strong><br>`;
 
+  dependentData += `<table>
+  <thead>
+    <th>Dependant ID</th>
+    <th>Dependant Name</th>
+    <th>Age</th>
+    <th>Relation</th>
+    <th>DOB</th>
+  </thead>`;
+  for (let r of data.dependents) {
+    dependentData += `<tr> 
+        <td>${r.depId} </td>
+        <td>${r.dependentName}</td>
+        <td>${r.age}</td> 
+        <td>${r.relationship}</td>   
+        <td>${r.dob}</td>    
+    </tr>`;
+  }
+  dependentData += `</table>`;
+
   document.getElementById("member-detail").innerHTML = text;
+  document.getElementById("dependent-data").innerHTML = dependentData;
 }
 
 claimData.then((data) => {

@@ -1,22 +1,62 @@
 <html>
-    <title>table view</title>
-    <head>
-        <link rel="stylesheet" href="./styles.css">
-    </head>
-    <body>
-        <div class="wrapper">
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name"><br>
-              
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email"><br>
-              
-                <label for="message">Message:</label>
-                <textarea id="message" name="message"></textarea><br>
-              
-                <input type="submit" value="Submit">
-              </form>
+  <title>table view</title>
+  <head>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="#" class="logo">
+        <img src="images/logo.png" alt="logo" />
+      </a>
+      <div class="top-links">
+        <ul>
+          <li class="noti-link">
+            <a href="#" class="">
+              <img src="images/notification-bell.png" alt="notification" />
+            </a>
+          </li>
+          <li class="user-link">
+            <a href="#" class="">
+              <div class="icon-links">
+                <div class="icon-link-img">
+                  <img src="images/man-avatar.png" alt="user" />
+                </div>
+                <div class="icon-link-text">
+                  <p>Jack Miller</p>
+                  <p>
+                    <span> CONTENT CREATOR </span>
+                  </p>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div class="wrapper">
+      <form>
+        <div class="form-field">
+          <label for="name">Member ID:</label>
+          <input type="text" id="name" name="name" />
         </div>
-    </body>
+        <div class="form-field">
+          <label for="name">Vaccination Name:</label>
+          <input type="text" id="name" name="name" />
+        </div>
+        <div class="form-field">
+          <label for="name">Date:</label>
+          <input type="date" id="name" name="name" />
+        </div>
+        <div class="form-field">
+          <label for="name">Amount:</label>
+          <input type="text" id="name" name="name" />
+        </div>
+        <div class="form-field">
+          <label for="name">Provider Name:</label>
+          <input type="text" id="name" name="name" />
+        </div>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
 </html>
