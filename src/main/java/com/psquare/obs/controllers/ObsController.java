@@ -94,8 +94,8 @@ public class ObsController {
         return ResponseEntity.ok(jsonString);
     }
 
-    @PostMapping("/submit-vac-dtl")
+  @PostMapping("/submit-vac-dtl")
     public ResponseEntity<String> submitVacDtl(@RequestBody VacDtl vacDtl){
-        return ResponseEntity.ok(vacDtl.toString());
+        return ResponseEntity.ok("Thanks for updating the vaccination details");
     }
 }
