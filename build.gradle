@@ -19,6 +19,9 @@ dependencies {
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.json:json:20090211'
+	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+
 
 }
 
