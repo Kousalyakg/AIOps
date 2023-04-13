@@ -3,6 +3,7 @@ package com.psquare.obs.controllers;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.psquare.obs.models.VacDtl;
+//import lombok.extern.slf4j.Slf4j;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.InputStream;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
 @Slf4j
 public class ObsController {
-
     @GetMapping("/claim-number")
     public ResponseEntity<String> claimNumbers(){
         String str = new String("Message");
@@ -94,8 +95,38 @@ public class ObsController {
         return ResponseEntity.ok(jsonString);
     }
 
-    @PostMapping("/submit-vac-dtl")
+  @PostMapping("/submit-vac-dtl")
     public ResponseEntity<String> submitVacDtl(@RequestBody VacDtl vacDtl){
-        return ResponseEntity.ok(vacDtl.toString());
+        Double a = vacDtl.getAmount() / 0;
+        return ResponseEntity.ok("Thanks for updating the vaccination details");
     }
+    @GetMapping("/errcr")
+    public ResponseEntity<Integer> errcr(){
+        String str = null;
+        str.split("a");
+        return ResponseEntity.ok(500);
+    }
+
+    @GetMapping("/dbops")
+    public ResponseEntity<String> dbConnectionError(){
+        Connection con= null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/sonoo","root","root");
+            Statement stmt=con.createStatement();
+            ResultSet rs=stmt.executeQuery("select * from emp");
+            while(rs.next())
+                System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+            con.close();
+        } catch (SQLException e) {
+            log.error("********** " ,e);
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return ResponseEntity.ok("");
+    }
+
+
 }
