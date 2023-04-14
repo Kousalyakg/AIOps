@@ -1,0 +1,22 @@
+image:
+  repository: gcr.io/emids-coe/aiops
+  tag: latest
+  pullPolicy: Always
+
+replicaCount: 1
+
+service:
+  name: aiops-service
+  type: ClusterIP
+  port: 8080
+  annotations: {}
+  labels: {}
+  
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
