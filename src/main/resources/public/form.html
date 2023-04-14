@@ -37,26 +37,27 @@
       <form>
         <div class="form-field">
           <label for="name">Member ID:</label>
-          <input type="text" id="name" name="name" />
+          <input type="text" id="memberId" name="name" />
         </div>
         <div class="form-field">
           <label for="name">Vaccination Name:</label>
-          <input type="text" id="name" name="name" />
+          <input type="text" id="vacName" name="name" />
         </div>
         <div class="form-field">
           <label for="name">Date:</label>
-          <input type="date" id="name" name="name" />
+          <input type="date" id="date" name="name" />
         </div>
         <div class="form-field">
           <label for="name">Amount:</label>
-          <input type="text" id="name" name="name" />
+          <input type="text" id="amt" name="name" />
         </div>
         <div class="form-field">
           <label for="name">Provider Name:</label>
-          <input type="text" id="name" name="name" />
+          <input type="text" id="providerName" name="name" />
         </div>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" onclick="postData(event)" />
       </form>
     </div>
+    <script src="./api.js"></script>
   </body>
 </html>
