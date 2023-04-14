@@ -3,9 +3,12 @@ package com.psquare.obs.controllers;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.psquare.obs.models.VacDtl;
+import com.psquare.obs.models.Vaccination;
+import com.psquare.obs.service.VaccinationService;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +24,10 @@ import java.util.Map;
 @RestController
 @Slf4j
 public class ObsController {
+
+    @Autowired
+    private VaccinationService vaccinationService;
+
     @GetMapping("/claim-number")
     public ResponseEntity<String> claimNumbers(){
         String str = new String("Message");
@@ -97,7 +104,15 @@ public class ObsController {
   @PostMapping("/submit-vac-dtl")
     public ResponseEntity<String> submitVacDtl(@RequestBody VacDtl vacDtl){
         Double a = vacDtl.getAmount() / 0;
-        return ResponseEntity.ok("Thanks for updating the vaccination details");
+        Vaccination vaccination = new Vaccination();
+        vaccination.setMemberId(vacDtl.getMemberId());
+        vaccination.setDate(vacDtl.getDate());
+          vaccination.setAmount(vacDtl.getAmount());
+          vaccination.setProviderName(vacDtl.getProviderName());
+          vaccination.setVacName(vacDtl.getVacName());
+          vaccination = vaccinationService.saveVaccinationDtl(vaccination);
+          System.out.println(vaccination.getId());
+      return ResponseEntity.ok("Thanks for updating the vaccination details");
     }
     @GetMapping("/errcr")
     public ResponseEntity<Integer> errcr(){
