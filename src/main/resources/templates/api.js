@@ -1,5 +1,5 @@
-const GET_MEMBER_DATA = "http://34.100.205.140/get-member-data";
-const GET_CLAIM_DATA = "http://34.100.205.140/get-claim-data";
+const GET_MEMBER_DATA = "http://34.174.80.77:8080/get-member-data";
+const GET_CLAIM_DATA = "http://34.174.80.77:8080/get-claim-data";
 
 async function getData(url) {
   const response = await fetch(url);
@@ -67,3 +67,36 @@ claimData.then((data) => {
 memberData.then((data) => {
   showMemberData(data);
 });
+
+//FORM API
+
+const url = "http://34.174.80.77:8080/submit-vac-dtl";
+const data = {
+  memberId: "ABC123",
+  vacName: "CovidShield",
+  date: "23-04-2023",
+  amount: "1200",
+  providerName: "Appolo",
+};
+
+async function postData() {
+  await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("API response:", data);
+    })
+    .catch((error) => {
+      console.error("Error posting data to API:", error);
+    });
+}
