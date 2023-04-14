@@ -1,0 +1,75 @@
+<html>
+  <title>table view</title>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="#" class="logo">
+        <img src="images/logo.png" alt="logo" />
+      </a>
+      <div class="top-links">
+        <ul>
+          <li class="noti-link">
+            <a href="#" class="">
+              <img src="images/notification-bell.png" alt="notification" />
+            </a>
+          </li>
+          <li class="user-link">
+            <a href="#" class="">
+              <div class="icon-links">
+                <div class="icon-link-img">
+                  <img src="images/man-avatar.png" alt="user" />
+                </div>
+                <div class="icon-link-text">
+                  <p>Jack Miller</p>
+                  <p>
+                    <span> CONTENT CREATOR </span>
+                  </p>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div class="wrapper detail-wrapper">
+      <header class="table-header">
+        <div id="member-detail" class="member-detail"></div>
+
+        <a class="button" href="form.html">Update Covid Vaccine Details</a>
+      </header>
+      <div class="dependent-wrapper">
+        <h3>Depandents</h3>
+        <div id="dependent-data"></div>
+      </div>
+      <div class="claims-wrapper">
+        <h3>Past Claims</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Claim ID</th>
+                <th>Claim status</th>
+                <th>Claim Type</th>
+                <th>Insurer Name</th>
+                <th>Member ID</th>
+                <th>Member Name</th>
+                <th>Patient ID</th>
+              </tr>
+            </thead>
+            <tbody id="claim-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./api.js"></script>
+</html>
