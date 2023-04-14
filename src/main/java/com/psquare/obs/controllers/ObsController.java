@@ -134,7 +134,6 @@ public class ObsController {
                 System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
         } catch (SQLException e) {
-            log.error("********** " ,e);
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
