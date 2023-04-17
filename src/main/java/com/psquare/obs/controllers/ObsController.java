@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.psquare.obs.models.VacDtl;
 import com.psquare.obs.models.Vaccination;
 import com.psquare.obs.service.VaccinationService;
-import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@Slf4j
 public class ObsController {
 
     @Autowired
@@ -119,6 +117,7 @@ public class ObsController {
         String str = null;
         str.split("a");
         return ResponseEntity.ok(500);
+
     }
 
     @GetMapping("/dbops")
