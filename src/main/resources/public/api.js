@@ -1,5 +1,6 @@
 const GET_MEMBER_DATA = "http://34.174.80.77:8080/get-member-data";
 const GET_CLAIM_DATA = "http://34.174.80.77:8080/get-claim-data";
+const POST_DATA_URL = "http://34.174.80.77:8080/submit-vac-dtl";
 
 async function getData(url) {
   const response = await fetch(url);
@@ -70,17 +71,23 @@ memberData.then((data) => {
 
 //FORM API
 
-const url = "http://34.174.80.77:8080/submit-vac-dtl";
-const data = {
-  memberId: "ABC123",
-  vacName: "CovidShield",
-  date: "23-04-2023",
-  amount: "1200",
-  providerName: "Appolo",
-};
+async function postData(e) {
+  e.preventDefault();
 
-async function postData() {
-  await fetch(url, {
+  var memberId = document.getElementById("memberId").value;
+  var vacName = document.getElementById("vacName").value;
+  var date = document.getElementById("date").value;
+  var amount = document.getElementById("amt").value;
+  var providerName = document.getElementById("providerName").value;
+
+  const data = {
+    memberId: memberId,
+    vacName: vacName,
+    date: date,
+    amount: amount,
+    providerName: providerName,
+  };
+  await fetch(POST_DATA_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
