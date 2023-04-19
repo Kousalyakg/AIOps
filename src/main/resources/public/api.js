@@ -98,6 +98,9 @@ async function postData(e) {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+      if (response.ok) {
+        document.getElementById("submit-success").style.display = "block";
+      }
       return response.json();
     })
     .then((data) => {
