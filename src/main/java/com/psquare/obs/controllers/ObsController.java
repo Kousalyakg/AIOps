@@ -5,21 +5,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.psquare.obs.models.VacDtl;
 import com.psquare.obs.models.Vaccination;
 import com.psquare.obs.service.VaccinationService;
+import io.micrometer.core.annotation.Timed;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.InputStream;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
 @RestController
 public class ObsController {
 
@@ -57,6 +56,7 @@ public class ObsController {
     }
 
     @GetMapping("/gcover")
+    @Timed(value ="obs_gc_over", description = "Memory exception", extraTags = {"service", "obsgcover"})
     public ResponseEntity<String> GCOverhead(){
             Map<Long, Long> map = new HashMap<>();
             for (long i = 0l; i < Long.MAX_VALUE; i++) {
@@ -100,6 +100,7 @@ public class ObsController {
     }
 
   @PostMapping("/submit-vac-dtl")
+  @Timed(value ="obs_vac_registration_exception", description = "Failed to process vaccine registration ", extraTags = {"service", "obsvaccine"})
     public ResponseEntity<String> submitVacDtl(@RequestBody VacDtl vacDtl){
         Double a = vacDtl.getAmount() / 0;
         Vaccination vaccination = new Vaccination();
@@ -113,6 +114,7 @@ public class ObsController {
       return ResponseEntity.ok("Thanks for updating the vaccination details");
     }
     @GetMapping("/errcr")
+    @Timed(value ="obs_internal_server_err", description = "Internal server error ", extraTags = {"service", "obserr"})
     public ResponseEntity<Integer> errcr(){
         String str = null;
         str.split("a");
@@ -121,6 +123,7 @@ public class ObsController {
     }
 
     @GetMapping("/dbops")
+    @Timed(value ="obs_dbconnect_err", description = "Failed to connect database", extraTags = {"service", "obsdbcon"})
     public ResponseEntity<String> dbConnectionError(){
         Connection con= null;
         try {
