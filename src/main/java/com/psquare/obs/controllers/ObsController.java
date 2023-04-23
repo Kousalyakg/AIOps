@@ -18,13 +18,14 @@ import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 public class ObsController {
 
     @Autowired
     private VaccinationService vaccinationService;
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/claim-number")
     public ResponseEntity<String> claimNumbers(){
         String str = new String("Message");
@@ -40,6 +41,7 @@ public class ObsController {
         return ResponseEntity.ok(jo.toString());
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/message")
     public ResponseEntity<String> message(){
         String str = new String("Message");
@@ -55,6 +57,7 @@ public class ObsController {
         return ResponseEntity.ok(jo.toString());
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/gcover")
     @Timed(value ="obs_gc_over", description = "Memory exception", extraTags = {"service", "obsgcover"})
     public ResponseEntity<String> GCOverhead(){
@@ -65,6 +68,7 @@ public class ObsController {
         return ResponseEntity.ok(HttpStatus.GATEWAY_TIMEOUT.toString());
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/get-member-data")
     public ResponseEntity<String> getMemberData(){
         String jsonString = null;
@@ -82,6 +86,7 @@ public class ObsController {
         return ResponseEntity.ok(jsonString);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/get-claim-data")
     public ResponseEntity<String> getClaimData(){
         String jsonString = null;
@@ -99,6 +104,7 @@ public class ObsController {
         return ResponseEntity.ok(jsonString);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
   @PostMapping("/submit-vac-dtl")
   @Timed(value ="obs_vac_registration_exception", description = "Failed to process vaccine registration ", extraTags = {"service", "obsvaccine"})
     public ResponseEntity<String> submitVacDtl(@RequestBody VacDtl vacDtl){
@@ -113,6 +119,7 @@ public class ObsController {
           System.out.println(vaccination.getId());
       return ResponseEntity.ok("Thanks for updating the vaccination details");
     }
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/errcr")
     @Timed(value ="obs_internal_server_err", description = "Internal server error ", extraTags = {"service", "obserr"})
     public ResponseEntity<Integer> errcr(){
@@ -122,6 +129,7 @@ public class ObsController {
 
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/dbops")
     @Timed(value ="obs_dbconnect_err", description = "Failed to connect database", extraTags = {"service", "obsdbcon"})
     public ResponseEntity<String> dbConnectionError(){
