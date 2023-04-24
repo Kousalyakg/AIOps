@@ -23,7 +23,7 @@
             </a>
           </li>
           <li class="user-link">
-            <a href="responses.html" class="">
+            <a href="#" class="">
               <div class="icon-links">
                 <div class="icon-link-img">
                   <img src="images/man-avatar.png" alt="user" />
@@ -40,34 +40,24 @@
         </ul>
       </div>
     </header>
-    <div class="wrapper detail-wrapper">
-      <header class="table-header">
-        <div id="member-detail" class="member-detail"></div>
-
-        <a class="button" href="form.html">Update Covid Vaccine Details</a>
-      </header>
-      <div class="dependent-wrapper">
-        <h3>Depandents</h3>
-        <div id="dependent-data"></div>
+    <div class="alert-success">Vaccination details updated successfully.</div>
+    <div class="alert-failure">Vaccination details updated successfully.</div>
+    <div class="cards-wrapper">
+      <div class="card">
+        <a class="button" onclick="getApiResponses('errcr')"
+          >Exception scenario</a
+        >
       </div>
-      <div class="claims-wrapper">
-        <h3>Past Claims</h3>
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Claim ID</th>
-                <th>Claim status</th>
-                <th>Claim Type</th>
-                <th>Insurer Name</th>
-                <th>Member ID</th>
-                <th>Member Name</th>
-                <th>Patient ID</th>
-              </tr>
-            </thead>
-            <tbody id="claim-table"></tbody>
-          </table>
-        </div>
+      <div class="card">
+        <a class="button" onclick="getApiResponses('dbops')"
+          >Check Database Collection</a
+        >
+      </div>
+      <div class="card">
+        <a class="button" onclick="getApiResponses('message')">Get Message</a>
+      </div>
+      <div class="card">
+        <a class="button">Memory Exception</a>
       </div>
     </div>
   </body>

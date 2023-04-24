@@ -110,3 +110,32 @@ async function postData(e) {
       console.error("Error posting data to API:", error);
     });
 }
+
+async function getApiResponses(endpoint) {
+  await fetch("http://34.174.80.77:8080/" + endpoint, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        document.getElementsByClassName("alert-failure").style.display =
+          "block";
+        document.getElementsByClassName("alert-success").style.display = "none";
+        throw new Error("Network response was not ok");
+      }
+      if (response.ok) {
+        document.getElementsByClassName("alert-success").style.display =
+          "block";
+        document.getElementsByClassName("alert-failure").style.display = "none";
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("API response:", data);
+    })
+    .catch((error) => {
+      console.error("Error posting data to API:", error);
+    });
+}
