@@ -357,3 +357,51 @@ h3 {
   border-radius: 0.25rem;
   display: none;
 }
+
+.alert-success {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto 20px;
+  color: #0f5132;
+  background-color: #d1e7dd;
+  border-color: #badbcc;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  display: none;
+}
+
+.alert-failure {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto 20px;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  display: none;
+}
+
+/* Responses */
+.cards-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 400px;
+  padding: 20px;
+}
+
+.cards-wrapper .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  padding: 25px;
+  min-width: 250px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 13px -3px rgba(0, 0, 0, 0.25);
+}
