@@ -96,10 +96,14 @@ async function postData(e) {
   })
     .then((response) => {
       if (!response.ok) {
+        document.getElementById("submit-success").style.display = "none";
+        document.getElementsByClassName("alert-failure").style.display =
+          "block";
         throw new Error("Network response was not ok");
       }
       if (response.ok) {
         document.getElementById("submit-success").style.display = "block";
+        document.getElementsByClassName("alert-failure").style.display = "none";
       }
       return response.json();
     })
