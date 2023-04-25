@@ -97,13 +97,14 @@ async function postData(e) {
     .then((response) => {
       if (!response.ok) {
         document.getElementById("submit-success").style.display = "none";
-        document.getElementsByClassName("alert-failure").style.display =
+        document.getElementsByClassName("alert-failure")[0].style.display =
           "block";
         throw new Error("Network response was not ok");
       }
       if (response.ok) {
         document.getElementById("submit-success").style.display = "block";
-        document.getElementsByClassName("alert-failure").style.display = "none";
+        document.getElementsByClassName("alert-failure")[0].style.display =
+          "none";
       }
       return response.json();
     })
@@ -124,15 +125,17 @@ async function getApiResponses(endpoint) {
   })
     .then((response) => {
       if (!response.ok) {
-        document.getElementsByClassName("alert-failure").style.display =
+        document.getElementsByClassName("alert-failure")[0].style.display =
           "block";
-        document.getElementsByClassName("alert-success").style.display = "none";
+        document.getElementsByClassName("alert-success")[0].style.display =
+          "none";
         throw new Error("Network response was not ok");
       }
       if (response.ok) {
-        document.getElementsByClassName("alert-success").style.display =
+        document.getElementsByClassName("alert-success")[0].style.display =
           "block";
-        document.getElementsByClassName("alert-failure").style.display = "none";
+        document.getElementsByClassName("alert-failure")[0].style.display =
+          "none";
       }
       return response.json();
     })
