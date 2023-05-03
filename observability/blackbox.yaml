@@ -1,0 +1,58 @@
+apiVersion: v1
+data:
+  blackbox.yaml: "modules:\n  http_2xx:\n    http:\n      follow_redirects: true\n
+    \     preferred_ip_protocol: ip4\n      valid_http_versions:\n      - HTTP/1.1\n
+    \     - HTTP/2.0\n      valid_status_codes: [200, 204, 307, 308, 302, 303, 429]\n
+    \   prober: http\n    timeout: 5s\n  http_2xx_aiops:\n    http:\n      follow_redirects:
+    true\n      preferred_ip_protocol: ip4\n      valid_http_versions:\n      - HTTP/1.1\n
+    \     - HTTP/2.0\n      valid_status_codes: [200, 204, 307, 308, 302, 303,429]\n
+    \     method: GET\n      headers:\n       content-type: application/json\n    prober:
+    http\n    timeout: 5s\n  http_2xx_aiops_claim_data:\n    http:\n      follow_redirects:
+    true\n      preferred_ip_protocol: ip4\n      valid_http_versions:\n      - HTTP/1.1\n
+    \     - HTTP/2.0\n    prober: http\n    timeout: 5s\n  http_2xx_aiops_claim-number:\n
+    \  http:\n     follow_redirects: true\n     preferred_ip_protocol: ip2\n     valid_http_versions:\n
+    \    - HTTP/1.1\n     - HTTP/2.0\n   prober: http\n   timeout: 5s\n  \n"
+kind: ConfigMap
+metadata:
+  annotations:
+    meta.helm.sh/release-name: prometheus-blackbox-exporter
+    meta.helm.sh/release-namespace: monitoring
+  creationTimestamp: "2023-04-13T10:35:54Z"
+  labels:
+    app.kubernetes.io/instance: prometheus-blackbox-exporter
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: prometheus-blackbox-exporter
+    app.kubernetes.io/version: 0.23.0
+    helm.sh/chart: prometheus-blackbox-exporter-7.7.0
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data: {}
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:meta.helm.sh/release-name: {}
+          f:meta.helm.sh/release-namespace: {}
+        f:labels:
+          .: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/managed-by: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/version: {}
+          f:helm.sh/chart: {}
+    manager: helm
+    operation: Update
+    time: "2023-04-13T10:35:54Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data:
+        f:blackbox.yaml: {}
+    manager: kubectl-edit
+    operation: Update
+    time: "2023-04-14T09:42:59Z"
+  name: prometheus-blackbox-exporter
+  namespace: monitoring
+  resourceVersion: "10570830"
+  uid: e8bca05a-8f85-4591-97d6-4218dc529ee4
